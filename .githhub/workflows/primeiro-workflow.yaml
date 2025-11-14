@@ -10,7 +10,7 @@ jobs:
 
         steps:
             - name: Checkout de Código
-              uses: aciton/checkout@v5
+              uses: actions/checkout@v5
 
-             - name: Mostrar Mensagem
+             -name: Mostrar Mensagem
               run: echo "Bah guri!"   
