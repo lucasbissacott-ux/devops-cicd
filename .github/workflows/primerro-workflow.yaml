@@ -29,7 +29,7 @@ qa:
      - name: Fase de Testes de Qualidade
        run: echo "Executar os testes de qualidade"
 
- homologacao:
+homologacao:
  needs:
  - dev
  - qa 
