@@ -2,14 +2,46 @@ name: Devops Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout de Código
+        uses: actions/checkout@v5
       
-      - name: Show message
-        run: echo "Bah guri! Pipeline funcionando!"
+      - name: Build Aplicacao
+        run: echo "Buildando a aplicação"
+
+dev:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Fase de Desenvolvimento
+        run: echo "Deploy no ambiente de desenvolvimento"
+
+qa:        
+   runs-on: ubuntu-latest
+   needs: build
+   steps:
+     - name: Fase de Testes de Qualidade
+       run: echo "Executar os testes de qualidade"
+
+ homologacao:
+ needs:
+ - dev
+ - qa 
+ runs-on: ubuntu-latest
+
+ steps:
+   - name: Deploy Homol
+     run: echo "Executando deploy no ambiente de homologação"
+
+     producao:
+       runs-on: ubuntu-latest
+       needs: homologacao
+       steps:
+         - name: Deploy Prod
+           run: echo "Executando deploy em Prod"
