@@ -1,4 +1,5 @@
 yaml
+
 name: Devops Workflow
 
 on:
@@ -7,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    # ← CORRIGIDO: "runs-on"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
