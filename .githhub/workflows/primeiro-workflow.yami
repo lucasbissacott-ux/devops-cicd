@@ -1,0 +1,16 @@
+name: Devops Workflow
+
+on:
+    push:
+        banches:
+        - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout de Código
+              uses: aciton/checkout@v5
+
+             - name: Mostrar Mensagem
+              run: echo "Bah guri!"   
